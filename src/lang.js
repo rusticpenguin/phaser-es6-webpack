@@ -1,12 +1,12 @@
-import idiom from 'idiom.js'
+import idiom from 'idiom.js';
+import { englishMenuText } from './text/gametext';
 
 const lang = idiom({
-  'default': {
-    'welcome': 'Welcome to Phaser + ES6 + Webpack!'
+  default: {
+    menuTitle: englishMenuText.GAME_TITLE,
+    menuStart: englishMenuText.MENU_START
   },
-  'pt-BR': {
-    'welcome': 'Bem vindo ao Phaser + ES6 + Webpack!'
-  }
-})
+  'pt-BR': { menuTitle: 'BRAZILLL' }
+});
 
-export default lang(window.navigator.language)
+export default lang(window.navigator.language);

@@ -16,12 +16,8 @@ var definePlugin = new webpack.DefinePlugin({
 
 module.exports = {
   entry: {
-    app: [
-      'babel-polyfill',
-      path.resolve(__dirname, 'src/main.js')
-    ],
+    app: ['babel-polyfill', path.resolve(__dirname, 'src/main.js')],
     vendor: ['pixi', 'p2', 'phaser', 'webfontloader']
-
   },
   output: {
     path: path.resolve(__dirname, 'www/dist'),
@@ -39,7 +35,10 @@ module.exports = {
         comments: false
       }
     }),
-    new webpack.optimize.CommonsChunkPlugin({ name: 'vendor'/* chunkName= */, filename: 'vendor.bundle.js'/* filename= */}),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor' /* chunkName= */,
+      filename: 'vendor.bundle.js' /* filename= */
+    }),
     new CopyWebpackPlugin([
       {
         from: path.resolve(__dirname, 'assets/**/*'),
@@ -49,9 +48,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: path.resolve(__dirname, 'www/index.html'),
       template: './src/index.html',
-      chunks: [
-        'vendor', 'app'
-      ],
+      chunks: ['vendor', 'app'],
       chunksSortMode: 'manual',
       minify: {
         removeAttributeQuotes: true,
@@ -81,9 +78,9 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'phaser': phaser,
-      'pixi': pixi,
-      'p2': p2
+      phaser: phaser,
+      pixi: pixi,
+      p2: p2
     }
   }
 }
